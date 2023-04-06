@@ -16,9 +16,9 @@ class Engine
 
     public function run(): void
     {
-        $uri = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+        $uri = $this->context->request->getUri();
 
-        $method =  match (ucfirst(strtolower($_SERVER['REQUEST_METHOD']))){
+        $method = match (ucfirst(strtolower($_SERVER['REQUEST_METHOD']))) {
             HTTPMethod::Get->name => HTTPMethod::Get,
             HTTPMethod::Post->name => HTTPMethod::Post,
             HTTPMethod::Put->name => HTTPMethod::Put,
@@ -27,8 +27,8 @@ class Engine
 
         if ($this->router::hasRouter($method, $uri)) {
 
-           $func =  $this->router::getHandleFunc($method, $uri);
-           call_user_func($func($this->context));
+            $func = $this->router::getHandleFunc($method, $uri);
+            call_user_func($func, $this->context);
         }
     }
 

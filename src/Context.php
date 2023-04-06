@@ -9,4 +9,10 @@ class Context
     public $config;
 
     public $response;
+
+
+    public function __construct()
+    {
+        $this->request = new Request();
+    }
 }
