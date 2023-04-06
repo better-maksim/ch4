@@ -1,0 +1,10 @@
+.DS_Store
+/vendor
+composer.phar
+composer.lock
+Thumbs.db
+/.idea
+/.vscode
+/.settings
+/.buildpath
+/.project

@@ -1,0 +1,15 @@
+{
+    "name": "guozhu/ch4",
+    "autoload": {
+        "psr-4": {
+            "Guozhu\\Ch4\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "guozhu",
+            "email": "guozhu@bianfeng.com"
+        }
+    ],
+    "require": {}
+}
