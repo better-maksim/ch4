@@ -2,7 +2,7 @@
     "name": "guozhu/ch4",
     "autoload": {
         "psr-4": {
-            "Guozhu\\Ch4\\": "src/"
+            "ch4\\": "src/"
         }
     },
     "authors": [

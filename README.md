@@ -13,3 +13,23 @@ Zend Engine v4.2.3, Copyright (c) Zend Technologies
     with Xdebug v3.2.0, Copyright (c) 2002-2022, by Derick Rethans
     with Zend OPcache v8.2.3, Copyright (c), by Zend Technologies
 ```
+
+# Quickstart
+
+```php
+<?php
+
+use Guozhu\Ch4\Context;
+use Guozhu\Ch4\HTTPMethod;
+use Guozhu\Ch4\Router;
+
+include 'vendor/autoload.php';
+
+$engine = new \Guozhu\Ch4\Engine();
+
+Router::addRouter(HTTPMethod::Get, '/', function (Context $context) {
+    echo "hello world!";
+});
+
+$engine->run();
+```

@@ -1,6 +1,8 @@
 <?php
 
-namespace guozhu\ch4;
+declare(strict_types=1);
+
+namespace ch4;
 
 class Request
 {
@@ -23,6 +25,16 @@ class Request
             $uri = '/';
         }
         return $uri;
+    }
+
+    public function getMethod(): HTTPMethod
+    {
+        return match (ucfirst(strtolower($_SERVER['REQUEST_METHOD']))) {
+            HTTPMethod::Get->name => HTTPMethod::Get,
+            HTTPMethod::Post->name => HTTPMethod::Post,
+            HTTPMethod::Put->name => HTTPMethod::Put,
+            HTTPMethod::Head->name => HTTPMethod::Head,
+        };
     }
 
 }

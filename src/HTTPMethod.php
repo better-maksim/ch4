@@ -1,6 +1,8 @@
 <?php
 
-namespace Guozhu\Ch4;
+declare(strict_types=1);
+
+namespace ch4;
 
 enum HTTPMethod
 {
@@ -13,8 +15,13 @@ enum HTTPMethod
     case Connect;
     case Trace;
 
-    public function toHTTPMethod(string $method): HTTPMethod
-    {
 
+    public function getMethods(): array
+    {
+        $methods = [];
+        foreach (HTTPMethod::cases() as $method) {
+            $methods[] = $method->name;
+        }
+        return $methods;
     }
 }

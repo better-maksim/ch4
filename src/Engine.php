@@ -1,6 +1,8 @@
 <?php
 
-namespace Guozhu\Ch4;
+declare(strict_types=1);
+
+namespace ch4;
 
 class Engine
 {
@@ -17,20 +19,11 @@ class Engine
     public function run(): void
     {
         $uri = $this->context->request->getUri();
-
-        $method = match (ucfirst(strtolower($_SERVER['REQUEST_METHOD']))) {
-            HTTPMethod::Get->name => HTTPMethod::Get,
-            HTTPMethod::Post->name => HTTPMethod::Post,
-            HTTPMethod::Put->name => HTTPMethod::Put,
-
-        };
+        $method = $this->context->request->getMethod();
 
         if ($this->router::hasRouter($method, $uri)) {
-
             $func = $this->router::getHandleFunc($method, $uri);
             call_user_func($func, $this->context);
         }
     }
-
-
 }

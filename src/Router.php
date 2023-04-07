@@ -1,6 +1,8 @@
 <?php
 
-namespace Guozhu\Ch4;
+declare(strict_types=1);
+
+namespace ch4;
 
 class Router
 {
